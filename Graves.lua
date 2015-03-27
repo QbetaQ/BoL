@@ -4,6 +4,7 @@ myHero = GetMyHero()
 
 function OnLoad()
     if (myHero.charName == "Graves") then
+		require "SxOrbWalk"
 		ts = TargetSelector(TARGET_LOW_HP_PRIORITY,650)
         PrintChat ("<font color=\"#66FFFF\">Beta Graves Has Been Loaded <font color=\"#FF0000\"> Good <font color=\"#FFFFFF\"> Game ")
 		else
@@ -20,6 +21,8 @@ function OnLoad()
 	Config:addParam("printMn", "Warnings", SCRIPT_PARAM_ONKEYTOGGLE, false, string.byte("Z"))
 	Config:addParam("combo", "Combo mode", SCRIPT_PARAM_ONKEYDOWN, false, string.byte(" "))
   Config:addParam("autoIgnite", "Auto Ignite Killable NOT WORK  ", SCRIPT_PARAM_ONOFF, true)
+	Config:addSubMenu("[Beta Graves]: Orbwalker", "Orbwalking")
+	SxOrb:LoadToMenu(Config.Orbwalking)
 	end 
 function OnDraw()
 	if (Config.printHp) then
